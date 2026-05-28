@@ -1,5 +1,5 @@
-export interface Task {
-  id: string;
-  title: string;
-  completed: boolean;
+export class Task {
+  id: string = '';
+  title: string = '';
+  completed: boolean = false;
 }
