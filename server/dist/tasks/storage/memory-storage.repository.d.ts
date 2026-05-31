@@ -1,7 +1,7 @@
 import { TaskRepositoryInterface } from '../definitions/task.repository.interface';
 import { Task } from '../definitions/task.model';
 export declare class MemoryStorageRepository implements TaskRepositoryInterface {
-    private tasks;
+    private static tasks;
     findAll(): Task[];
     findById(id: string): Task | undefined;
     create(task: Task): Task;

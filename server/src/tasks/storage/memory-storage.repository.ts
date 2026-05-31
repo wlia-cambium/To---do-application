@@ -4,33 +4,37 @@ import { Task } from '../definitions/task.model';
 
 @Injectable()
 export class MemoryStorageRepository implements TaskRepositoryInterface {
-  private tasks: Task[] = Array.from({ length: 20 }).map((_, index) => ({
-    id: index.toString(),
-    title: `משימה מספר ${index + 1}`,
-    completed: false,
-  }));
+  private static tasks: Task[] = [];
 
   findAll(): Task[] {
-    return this.tasks;
+    return MemoryStorageRepository.tasks;
   }
 
   findById(id: string): Task | undefined {
-    return this.tasks.find((task) => task.id === id);
+    const cleanId = id.trim().replace(':', '');
+    return MemoryStorageRepository.tasks.find(
+      (task) => task.id.trim() === cleanId,
+    );
   }
 
   create(task: Task): Task {
-    this.tasks.push(task);
+    MemoryStorageRepository.tasks.push(task);
     return task;
   }
 
   update(updatedTask: Task): void {
-    const index = this.tasks.findIndex((task) => task.id === updatedTask.id);
+    const index = MemoryStorageRepository.tasks.findIndex(
+      (task) => task.id === updatedTask.id,
+    );
     if (index !== -1) {
-      this.tasks[index] = updatedTask;
+      MemoryStorageRepository.tasks[index] = updatedTask;
     }
   }
 
   delete(id: string): void {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    const cleanId = id.trim().replace(':', '');
+    MemoryStorageRepository.tasks = MemoryStorageRepository.tasks.filter(
+      (task) => task.id.trim() !== cleanId,
+    );
   }
 }
