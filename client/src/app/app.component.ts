@@ -6,8 +6,6 @@ import { TasksComponent } from './features/tasks/tasks.component';
   standalone: true,
   imports: [TasksComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'To-Do App';
-}
+export class AppComponent {}
