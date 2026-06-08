@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { TaskRepositoryInterface } from '../definitions/task.repository.interface';
-import { Task } from '../definitions/task.model';
+import { TaskRepositoryInterface } from './task.repository.interface';
+import { Task } from './task.model';
 
 @Injectable()
 export class MemoryStorageRepository implements TaskRepositoryInterface {
-  private static tasks: Task[] = [];
+  private static tasks: Task[] = Array.from({ length: 200 }, (_, i) => ({
+    id: `auto-${i + 1}`,
+    title: `משימה וירטואלית מספר ${i + 1} 🚀`,
+    completed: false,
+  }));
 
   findAll(): Task[] {
     return MemoryStorageRepository.tasks;

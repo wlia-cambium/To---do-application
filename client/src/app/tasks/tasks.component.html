@@ -1,0 +1,34 @@
+<div class="task-container">
+  <header>
+    <h1>המשימות שלי</h1>
+    <div class="add-task-form">
+      <input type="text" placeholder="מה צריך לעשות?" #newTaskInput />
+      <button (click)="addTask(newTaskInput.value); newTaskInput.value = ''">הוסף משימה</button>
+    </div>
+  </header>
+
+  @if (tasksList.length === 0) {
+    <div
+      class="task-item"
+      style="justify-content: center; color: gray; border: none; box-shadow: none; padding: 40px 0"
+    >
+      אין משימות כרגע, אפשר לנוח! 😎
+    </div>
+  }
+
+  <cdk-virtual-scroll-viewport
+    itemSize="92"
+    class="task-list-viewport"
+    [style.display]="tasksList.length === 0 ? 'none' : 'block'"
+  >
+    <div *cdkVirtualFor="let task of tasksList; trackBy: trackById" class="task-item-wrapper">
+      <div class="task-item" [class.completed]="task.completed">
+        <label class="task-content">
+          <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task.id)" />
+          <span>{{ task.title }}</span>
+        </label>
+        <button class="delete-btn" (click)="deleteTask(task.id)">🗑️</button>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

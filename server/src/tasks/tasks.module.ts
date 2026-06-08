@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { TasksController } from './endpoints/tasks.controller';
+import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
-import { TaskRepositoryInterface } from './definitions/task.repository.interface';
-import { MemoryStorageRepository } from './storage/memory-storage.repository';
+import { TaskRepositoryInterface } from './task.repository.interface';
+import { MemoryStorageRepository } from './memory-storage.repository';
 
 @Module({
   controllers: [TasksController],
