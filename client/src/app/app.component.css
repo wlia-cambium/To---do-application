@@ -37,9 +37,18 @@ header {
   background-color: #0056b3;
 }
 
-.task-list {
-  list-style: none;
-  padding: 0;
+.task-list-viewport {
+  height: 450px;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.task-list-viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .task-item {
@@ -50,10 +59,9 @@ header {
   margin-bottom: 10px;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: 0.3s;
 }
-
 
 .task-item.completed {
   opacity: 0.6;
