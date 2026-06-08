@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TasksService = void 0;
 const common_1 = require("@nestjs/common");
-const task_repository_interface_1 = require("./definitions/task.repository.interface");
+const task_repository_interface_1 = require("./task.repository.interface");
 let TasksService = class TasksService {
     taskRepository;
     constructor(taskRepository) {

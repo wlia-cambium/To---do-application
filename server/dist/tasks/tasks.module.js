@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TasksModule = void 0;
 const common_1 = require("@nestjs/common");
-const tasks_controller_1 = require("./endpoints/tasks.controller");
+const tasks_controller_1 = require("./tasks.controller");
 const tasks_service_1 = require("./tasks.service");
-const task_repository_interface_1 = require("./definitions/task.repository.interface");
-const memory_storage_repository_1 = require("./storage/memory-storage.repository");
+const task_repository_interface_1 = require("./task.repository.interface");
+const memory_storage_repository_1 = require("./memory-storage.repository");
 let TasksModule = class TasksModule {
 };
 exports.TasksModule = TasksModule;

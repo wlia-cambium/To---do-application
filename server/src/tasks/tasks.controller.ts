@@ -9,8 +9,8 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
-import { TasksService } from '../tasks.service';
-import { Task } from '../definitions/task.model';
+import { TasksService } from './tasks.service';
+import { Task } from './task.model';
 
 @Controller('tasks')
 export class TasksController {
@@ -35,10 +35,5 @@ export class TasksController {
   @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id') id: string): void {
     this.tasksService.removeTask(id);
-  }
-
-  @Patch(':id')
-  updateTitle(@Param('id') id: string, @Body('title') title: string): Task {
-    return this.tasksService.updateTaskTitle(id, title);
   }
 }
